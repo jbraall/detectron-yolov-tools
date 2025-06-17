@@ -1,0 +1,81 @@
+/* Custom styles to complement Tailwind */
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation links styling */
+.nav-link {
+    @apply text-gray-600 hover:text-gray-900 transition-colors duration-200;
+    font-family: 'Fira Code', monospace;
+}
+
+/* Button styles */
+.btn-primary {
+    @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-mono hover:bg-blue-700 transition-colors duration-200;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-mono hover:bg-gray-300 transition-colors duration-200;
+}
+
+/* Code-like typography for technical content */
+pre, code {
+    font-family: 'Fira Code', monospace;
+}
+
+/* Table styles */
+table {
+    @apply rounded-lg overflow-hidden;
+}
+
+th {
+    @apply font-mono;
+}
+
+/* Card hover effects */
+.card {
+    @apply transition-transform duration-200;
+}
+
+.card:hover {
+    @apply transform -translate-y-1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Section transitions */
+section {
+    @apply transition-all duration-300;
+}
+
+/* Link hover effects */
+a {
+    @apply transition-colors duration-200;
+}
+
+/* Custom focus styles */
+*:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-opacity-50;
+} 

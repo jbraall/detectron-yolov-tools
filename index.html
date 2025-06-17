@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Vision Insights | Detectron2 & YOLOv8</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Fixed Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-mono font-bold">CV Insights</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#modelos" class="nav-link">Modelos</a>
+                    <a href="#proyectos" class="nav-link">Proyectos</a>
+                    <a href="#blog" class="nav-link">Blog</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-3 mt-3">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#modelos" class="nav-link">Modelos</a>
+                    <a href="#proyectos" class="nav-link">Proyectos</a>
+                    <a href="#blog" class="nav-link">Blog</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16">
+        <!-- Inicio Section -->
+        <section id="inicio" class="min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div class="container mx-auto px-4 py-16">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-mono font-bold mb-6">Computer Vision Insights</h1>
+                    <p class="text-lg md:text-xl mb-8">Análisis técnico y comparativa de modelos de visión por computador: Detectron2 y YOLOv8</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#modelos" class="btn-primary">Explorar Modelos</a>
+                        <a href="#blog" class="btn-secondary">Leer Blog</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modelos Section -->
+        <section id="modelos" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-mono font-bold text-center mb-12">Comparativa de Modelos</h2>
+                <div class="max-w-2xl mx-auto mb-8">
+                    <p class="text-center text-gray-700">Ambos modelos seleccionados son comparables en complejidad (número de parámetros), aunque siguen enfoques arquitectónicos distintos: Detectron2 emplea Mask R-CNN con backbone ResNet-50-FPN, mientras que YOLOv8-L representa la versión grande y optimizada de la familia YOLOv8.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="px-6 py-3 border-b text-left">Característica</th>
+                                <th class="px-6 py-3 border-b text-left">Detectron2</th>
+                                <th class="px-6 py-3 border-b text-left">YOLOv8</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-6 py-4 border-b">Framework</td>
+                                <td class="px-6 py-4 border-b">PyTorch</td>
+                                <td class="px-6 py-4 border-b">PyTorch</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 border-b">Modelo evaluado</td>
+                                <td class="px-6 py-4 border-b">Mask R-CNN ResNet-50-FPN</td>
+                                <td class="px-6 py-4 border-b">YOLOv8-L</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 border-b">Número de parámetros</td>
+                                <td class="px-6 py-4 border-b">~41 millones</td>
+                                <td class="px-6 py-4 border-b">~43 millones</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 border-b">Velocidad de inferencia</td>
+                                <td class="px-6 py-4 border-b">Moderada</td>
+                                <td class="px-6 py-4 border-b">Alta</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 border-b">Precisión</td>
+                                <td class="px-6 py-4 border-b">Alta</td>
+                                <td class="px-6 py-4 border-b">Muy Alta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos Section -->
+        <section id="proyectos" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-mono font-bold text-center mb-12">Proyectos</h2>
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <!-- Benchmark Tools Category -->
+                    <div class="border rounded-lg bg-white">
+                        <button type="button" class="w-full flex items-center justify-between px-6 py-4 font-mono font-bold text-lg text-purple-700 hover:bg-purple-50 focus:outline-none category-toggle" data-target="benchmark-panel">
+                            <span><i class="fas fa-chart-bar mr-2"></i>Benchmark Tools</span>
+                            <i class="fas fa-chevron-down transition-transform" id="icon-benchmark-panel"></i>
+                        </button>
+                        <div class="hidden px-6 pb-4 pt-2" id="benchmark-panel">
+                            <!-- ScriptCard: evaluador_unificado.py -->
+                            <div class="bg-purple-50 border-l-4 border-purple-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-purple-800">evaluador_unificado.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Evalúa predicciones de modelos en formato COCO (Detectron2 o YOLOv8), generando métricas globales y por clase, incluyendo:<br>
+                                    - AP@[.5:.95], AP por clase<br>
+                                    - AR@100, Recall por clase<br>
+                                    - Archivos JSON exportados con resultados</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/benchmark_tools/evaluador_unificado.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Detectron2 Tools Category -->
+                    <div class="border rounded-lg bg-white">
+                        <button type="button" class="w-full flex items-center justify-between px-6 py-4 font-mono font-bold text-lg text-blue-700 hover:bg-blue-50 focus:outline-none category-toggle" data-target="detectron2-panel">
+                            <span><i class="fas fa-tools mr-2"></i>Detectron2 Tools</span>
+                            <i class="fas fa-chevron-down transition-transform" id="icon-detectron2-panel"></i>
+                        </button>
+                        <div class="hidden px-6 pb-4 pt-2" id="detectron2-panel">
+                            <!-- ScriptCard: conocer_numero_parametros.py -->
+                            <div class="bg-blue-50 border-l-4 border-blue-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-blue-800">conocer_numero_parametros.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Muestra el número total de parámetros de un modelo Detectron2 (ej. Mask R-CNN con ResNet-50-FPN).</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/detectron2_tools/conocer_numero_parametros.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                            <!-- ScriptCard: corregir_dimensiones_coco.py -->
+                            <div class="bg-blue-50 border-l-4 border-blue-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-blue-800">corregir_dimensiones_coco.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Compara las dimensiones registradas en el JSON COCO con las reales de las imágenes, y las corrige si hay errores.</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/detectron2_tools/corregir_dimensiones_coco.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                            <!-- ScriptCard: corregir_nombres_file_name.py -->
+                            <div class="bg-blue-50 border-l-4 border-blue-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-blue-800">corregir_nombres_file_name.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Corrige los nombres de archivo (<code>file_name</code>) en archivos COCO para que coincidan con los nombres reales de las imágenes en disco.</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/detectron2_tools/corregir_nombres_file_name.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                            <!-- ScriptCard: unificar_anotaciones_coco.py -->
+                            <div class="bg-blue-50 border-l-4 border-blue-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-blue-800">unificar_anotaciones_coco.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Une múltiples archivos COCO (uno por imagen) en un único archivo con IDs únicos y categorías unificadas. Necesario para entrenamiento en Detectron2.</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/detectron2_tools/unificar_anotaciones_coco.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                            <!-- ScriptCard: visualizar_anotaciones_coco.py -->
+                            <div class="bg-blue-50 border-l-4 border-blue-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-blue-800">visualizar_anotaciones_coco.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Dibuja las anotaciones COCO (bounding boxes, clases) sobre las imágenes originales y guarda una copia etiquetada para verificación visual.</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/detectron2_tools/visualizar_anotaciones_coco.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                            <!-- ScriptCard: voc_to_coco_last_update.py -->
+                            <div class="bg-blue-50 border-l-4 border-blue-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-blue-800">voc_to_coco_last_update.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Convierte anotaciones en formato Pascal VOC XML al formato COCO. Útil para migrar datasets antiguos.</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/detectron2_tools/voc_to_coco_last_update.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- YOLOv8 Tools Category -->
+                    <div class="border rounded-lg bg-white">
+                        <button type="button" class="w-full flex items-center justify-between px-6 py-4 font-mono font-bold text-lg text-green-700 hover:bg-green-50 focus:outline-none category-toggle" data-target="yolov8-panel">
+                            <span><i class="fas fa-rocket mr-2"></i>YOLOv8 Tools</span>
+                            <i class="fas fa-chevron-down transition-transform" id="icon-yolov8-panel"></i>
+                        </button>
+                        <div class="hidden px-6 pb-4 pt-2" id="yolov8-panel">
+                            <!-- ScriptCard: convertir_coco_a_yolo.py -->
+                            <div class="bg-green-50 border-l-4 border-green-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-green-800">convertir_coco_a_yolo.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Convierte anotaciones desde COCO a YOLOv5/YOLOv8 (<code>.txt</code> por imagen, con coordenadas normalizadas).</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/yolov8_tools/convertir_coco_a_yolo.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                            <!-- ScriptCard: visualizar_segmentaciones_yolo.py -->
+                            <div class="bg-green-50 border-l-4 border-green-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div>
+                                    <span class="font-mono font-bold text-green-800">visualizar_segmentaciones_yolo.py</span>
+                                    <p class="text-gray-700 text-sm mt-1">Visualiza anotaciones YOLO con segmentaciones poligonales, dibujando bounding boxes y máscaras sobre las imágenes.</p>
+                                </div>
+                                <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/yolov8_tools/visualizar_segmentaciones_yolo.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-mono font-bold text-center mb-12">Blog</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Blog Post 1 -->
+                    <article class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-xl font-mono font-bold mb-4">Comparativa de Rendimiento: Detectron2 vs YOLOv8</h3>
+                        <p class="text-gray-600 mb-4">Fecha: 1 de Marzo, 2024</p>
+                        <p class="mb-4">Análisis detallado del rendimiento de ambos modelos en diferentes escenarios...</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800">Leer más →</a>
+                    </article>
+                    <!-- Blog Post 2 -->
+                    <article class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-xl font-mono font-bold mb-4">Optimización de YOLOv8 para Edge Devices</h3>
+                        <p class="text-gray-600 mb-4">Fecha: 15 de Febrero, 2024</p>
+                        <p class="mb-4">Técnicas y estrategias para optimizar YOLOv8 en dispositivos con recursos limitados...</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800">Leer más →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto Section -->
+        <section id="contacto" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-mono font-bold text-center mb-12">Contacto</h2>
+                <div class="max-w-2xl mx-auto text-center">
+                    <p class="mb-8">¿Interesado en colaborar o tienes alguna pregunta? No dudes en contactarme.</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="text-gray-600 hover:text-gray-900">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="mailto:tu@email.com" class="text-gray-600 hover:text-gray-900">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Computer Vision Insights. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
