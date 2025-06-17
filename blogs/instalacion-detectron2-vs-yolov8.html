@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Detectron2 o YOLOv8? Comparativa real de instalación</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+  <main class="max-w-2xl mx-auto px-4 py-10">
+    <!-- Cabecera -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-500 rounded-xl shadow-lg p-8 mb-10 flex flex-col items-center text-white">
+      <div class="mb-4">
+        <svg class="w-16 h-16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"></path>
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-2 text-center drop-shadow">¿Detectron2 o YOLOv8? Comparativa real de instalación</h1>
+      <p class="text-indigo-100 text-sm">Publicado el 17 de junio de 2025</p>
+    </header>
+
+    <!-- Intro -->
+    <section class="mb-8">
+      <p class="text-lg mb-4">
+        La primera barrera para empezar con visión por computador no es el código: es <strong>poner en marcha el framework</strong>. Aquí comparo, punto por punto, lo fácil (o difícil) que resulta instalar <em>Detectron2</em> y <em>YOLOv8</em> en un ordenador doméstico.
+      </p>
+    </section>
+
+    <!-- Requisitos -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center"><span class="mr-2">1.</span>Requisitos rápidos</h2>
+      <div class="overflow-x-auto rounded-lg shadow mb-4">
+        <table class="w-full text-sm bg-white border border-gray-200">
+          <thead>
+            <tr class="bg-blue-100 text-blue-900">
+              <th class="p-2 border">Concepto</th>
+              <th class="p-2 border">Detectron2</th>
+              <th class="p-2 border">YOLOv8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-2 border">SO recomendado</td><td class="p-2 border">Linux / Windows + WSL2</td><td class="p-2 border">Linux / Windows / macOS</td></tr>
+            <tr><td class="p-2 border">Python</td><td class="p-2 border">3.8 – 3.12</td><td class="p-2 border">3.7 – 3.11</td></tr>
+            <tr><td class="p-2 border">CUDA (opcional)</td><td class="p-2 border">10.1 – 12.4</td><td class="p-2 border">10.2 – 11.8</td></tr>
+            <tr><td class="p-2 border">Compilar C/C++</td><td class="p-2 border">Sí (gcc, cmake)</td><td class="p-2 border">No</td></tr>
+            <tr><td class="p-2 border">CLI integrada</td><td class="p-2 border">No</td><td class="p-2 border">Sí&nbsp;(<code>yolo</code>)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Detectron2 -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center"><span class="mr-2">2.</span>Instalar Detectron2 — <span class="ml-1 text-base text-blue-500">5-10 min</span></h2>
+      <pre class="bg-gray-900 text-green-200 p-4 rounded-lg text-sm overflow-x-auto mb-3"><code># 1. Clona el repo
+git clone https://github.com/facebookresearch/detectron2.git
+cd detectron2
+
+# 2. Instala PyTorch (ej. CUDA 11.7)
+pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/cu117
+
+# 3. Compila e instala Detectron2
+pip install -e .
+</code></pre>
+      <p class="mb-4"><strong>Puntos críticos:</strong> ajusta bien la versión de CUDA con la de PyTorch y usa WSL 2 en Windows para evitar problemas de compilación.</p>
+    </section>
+
+    <!-- YOLOv8 -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-green-700 mb-3 flex items-center"><span class="mr-2">3.</span>Instalar YOLOv8 — <span class="ml-1 text-base text-green-500">1-2 min</span></h2>
+      <pre class="bg-gray-900 text-green-200 p-4 rounded-lg text-sm overflow-x-auto mb-3"><code># 1. Crea un entorno virtual
+python -m venv yolov8_env
+source yolov8_env/bin/activate   # Windows: yolov8_env\Scripts\activate
+
+# 2. Instala YOLOv8
+pip install ultralytics
+
+# 3. Comprueba
+yolo --help
+</code></pre>
+      <p class="mb-4">No requiere compilación: todo llega vía <code>pip</code>, por lo que es difícil encontrar errores si tu versión de Python está dentro del rango soportado.</p>
+    </section>
+
+    <!-- Comparativa -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-indigo-700 mb-3 flex items-center"><span class="mr-2">4.</span>Cara a cara (resumen)</h2>
+      <div class="overflow-x-auto rounded-lg shadow mb-4">
+        <table class="w-full text-sm bg-white border border-gray-200">
+          <thead>
+            <tr class="bg-indigo-100 text-indigo-900">
+              <th class="p-2 border">Aspecto</th>
+              <th class="p-2 border">Detectron2</th>
+              <th class="p-2 border">YOLOv8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="p-2 border">Pasos totales</td><td class="p-2 border">3</td><td class="p-2 border">1</td></tr>
+            <tr><td class="p-2 border">Riesgo de errores</td><td class="p-2 border">Medio (CUDA)</td><td class="p-2 border">Bajo</td></tr>
+            <tr><td class="p-2 border">Necesita compilar</td><td class="p-2 border">Sí</td><td class="p-2 border">No</td></tr>
+            <tr><td class="p-2 border">CLI incluida</td><td class="p-2 border">No</td><td class="p-2 border">Sí</td></tr>
+            <tr><td class="p-2 border">Tiempo de setup</td><td class="p-2 border">5-10 min</td><td class="p-2 border">1-2 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Consejos -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-yellow-700 mb-3 flex items-center"><span class="mr-2">5.</span>Consejos express</h2>
+      <ul class="list-disc list-inside mb-6 space-y-2">
+        <li><strong>Detectron2:</strong> casa exactamente PyTorch con tu versión de CUDA; instala <code>cmake</code> y actualiza <code>gcc</code> si compila lento.</li>
+        <li><strong>YOLOv8:</strong> trabaja siempre en un entorno virtual limpio; si <code>yolo</code> "no existe" en terminal, añade <code>~/.local/bin</code> (Linux) o revisa tu PATH en Windows.</li>
+      </ul>
+    </section>
+
+    <!-- Conclusión -->
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><span class="mr-2">6.</span>Conclusión</h2>
+      <p class="mb-8">
+        Si tu objetivo es <em>arrancar ya mismo</em>, <strong>YOLOv8</strong> gana:
+        <code>pip install ultralytics</code> y listo. <br />
+        Si buscas la gran flexibilidad de Detectron2 y no te importa compilar, dedica unos minutos a cuadrar versiones de CUDA y PyTorch. ¡Tu GPU te lo agradecerá!
+      </p>
+    </section>
+
+    <!-- Footer autor -->
+    <footer class="bg-gray-100 rounded-lg p-6 text-center text-sm text-gray-600 shadow">
+      <div class="flex flex-col items-center space-y-2">
+        <img src="https://avatars.githubusercontent.com/u/13246062?v=4" alt="Javier Branchadell" class="w-14 h-14 rounded-full border-2 border-blue-300 shadow mb-2">
+        <p>Entrada escrita por <span class="font-semibold">Javier Branchadell (jbraall)</span></p>
+        <p>
+          📧 <a href="mailto:jbraall@etsinf.upv.es" class="text-blue-700 hover:underline">jbraall@etsinf.upv.es</a> &nbsp;|&nbsp;
+          🐙 <a href="https://github.com/jbraall" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">github.com/jbraall</a>
+        </p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
