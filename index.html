@@ -45,9 +45,14 @@
     <!-- Main Content -->
     <main class="pt-16">
         <!-- Inicio Section -->
-        <section id="inicio" class="min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-indigo-50">
-            <div class="container mx-auto px-4 py-16">
-                <div class="max-w-3xl mx-auto text-center">
+        <section id="inicio" class="min-h-screen flex items-center relative">
+            <!-- Imagen de fondo -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('image_portada.png');"></div>
+            <!-- Gradiente para mejorar legibilidad -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-indigo-900/70"></div>
+            <!-- Contenido -->
+            <div class="container mx-auto px-4 py-16 relative z-10">
+                <div class="max-w-3xl mx-auto text-center text-white">
                     <h1 class="text-4xl md:text-5xl font-mono font-bold mb-6">Computer Vision Insights</h1>
                     <p class="text-lg md:text-xl mb-8">Análisis técnico y comparativa de modelos de visión por computador: Detectron2 y YOLOv8</p>
                     <div class="flex justify-center space-x-4">
@@ -87,8 +92,8 @@
                             </tr>
                             <tr>
                                 <td class="px-6 py-4 border-b">Número de parámetros</td>
-                                <td class="px-6 py-4 border-b">~41 millones</td>
-                                <td class="px-6 py-4 border-b">~43 millones</td>
+                                <td class="px-6 py-4 border-b">43.934.184</td>
+                                <td class="px-6 py-4 border-b">43.632.924</td>
                             </tr>
                             <tr>
                                 <td class="px-6 py-4 border-b">Velocidad de inferencia</td>
