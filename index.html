@@ -21,6 +21,7 @@
                     <a href="#inicio" class="nav-link">Inicio</a>
                     <a href="#modelos" class="nav-link">Modelos</a>
                     <a href="#proyectos" class="nav-link">Proyectos</a>
+                    <a href="#scripts" class="nav-link">Scripts</a>
                     <a href="#blog" class="nav-link">Blog</a>
                     <a href="#contacto" class="nav-link">Contacto</a>
                 </div>
@@ -34,6 +35,7 @@
                 <div class="flex flex-col space-y-3 mt-3">
                     <a href="#inicio" class="nav-link">Inicio</a>
                     <a href="#modelos" class="nav-link">Modelos</a>
+                    <a href="#scripts" class="nav-link">Scripts</a>
                     <a href="#proyectos" class="nav-link">Proyectos</a>
                     <a href="#blog" class="nav-link">Blog</a>
                     <a href="#contacto" class="nav-link">Contacto</a>
@@ -112,9 +114,26 @@
         </section>
 
         <!-- Proyectos Section -->
-        <section id="proyectos" class="py-16 bg-gray-50">
+        <section id="proyectos" class="py-16 bg-white">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-mono font-bold text-center mb-12">Proyectos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Proyecto: Detectron Documentos Manuscritos -->
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-mono font-bold mb-3">Detectron Documentos Manuscritos</h3>
+                            <p class="mb-6 text-gray-700">Modelos entrenados para detección de elementos en documentos manuscritos históricos. Incluye pesos para diferentes datasets: OHG y VORAU.</p>
+                        </div>
+                        <a href="https://github.com/jbraall/detectron-yolov-tools/releases/tag/v1.0-pesos" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">Descargar pesos →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scripts Section -->
+        <section id="scripts" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-mono font-bold text-center mb-12">Scripts</h2>
                 <div class="max-w-4xl mx-auto space-y-8">
                     <!-- Benchmark Tools Category -->
                     <div class="border rounded-lg bg-white">
@@ -187,7 +206,7 @@
                             <div class="bg-blue-50 border-l-4 border-blue-400 rounded-md p-4 mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
                                 <div>
                                     <span class="font-mono font-bold text-blue-800">voc_to_coco_last_update.py</span>
-                                    <p class="text-gray-700 text-sm mt-1">Convierte anotaciones en formato Pascal VOC XML al formato COCO. Útil para MI datasets antiguos.</p>
+                                    <p class="text-gray-700 text-sm mt-1">Convierte anotaciones en formato Pascal VOC XML al formato COCO. Útil para migrar datasets antiguos.</p>
                                 </div>
                                 <a href="https://github.com/jbraall/detectron-yolov-tools/blob/main/detectron2_tools/voc_to_coco_last_update.py" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-3 md:mt-0 md:ml-6">Ver en GitHub</a>
                             </div>
